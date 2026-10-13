@@ -1,0 +1,1383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Ultimate Air Fryer Indian Cookbook | 100 Master Recipes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #c2410c; /* terracotta orange */
+      --primary-dark: #9a3412;
+      --primary-light: #ffedd5;
+      --secondary: #15803d; /* herb green */
+      --secondary-light: #dcfce7;
+      --dark: #1e293b;
+      --charcoal: #0f172a;
+      --gray-bg: #f8fafc;
+      --card-bg: #ffffff;
+      --border: #e2e8f0;
+      --text-muted: #64748b;
+      --font-body: 'Plus Jakarta Sans', -apple-system, sans-serif;
+      --font-display: 'Playfair Display', Georgia, serif;
+      --radius: 16px;
+      --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.05);
+      --shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.08), 0 8px 10px -6px rgba(15, 23, 42, 0.04);
+      --shadow-lg: 0 20px 35px -10px rgba(15, 23, 42, 0.15);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: var(--font-body);
+      background-color: var(--gray-bg);
+      color: var(--dark);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Hero Header */
+    .hero-banner {
+      position: relative;
+      background: linear-gradient(135deg, #1e1b18 0%, #2e261f 100%);
+      color: #ffffff;
+      padding: 60px 24px 80px;
+      overflow: hidden;
+      text-align: center;
+    }
+    .hero-bg-overlay {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-image: url('images/cover.jpg');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.22;
+      filter: blur(2px);
+    }
+    .hero-content {
+      position: relative;
+      max-width: 900px;
+      margin: 0 auto;
+      z-index: 2;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(194, 65, 12, 0.25);
+      border: 1px solid rgba(251, 146, 60, 0.5);
+      color: #fdba74;
+      padding: 6px 16px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      line-height: 1.15;
+      font-weight: 800;
+      margin-bottom: 16px;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    }
+    .hero-title span {
+      background: linear-gradient(120deg, #fdba74, #f97316);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero-subtitle {
+      font-size: clamp(1.05rem, 2vw, 1.25rem);
+      color: #e2e8f0;
+      max-width: 720px;
+      margin: 0 auto 32px;
+      font-weight: 400;
+    }
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 24px;
+      margin-top: 24px;
+    }
+    .stat-pill {
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.12);
+      padding: 10px 20px;
+      border-radius: 12px;
+      text-align: left;
+    }
+    .stat-val { font-size: 1.3rem; font-weight: 800; color: #ffedd5; }
+    .stat-lbl { font-size: 0.75rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.04em; }
+
+    /* Sticky Navigation & Controls */
+    .controls-wrapper {
+      position: sticky;
+      top: 0;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      z-index: 100;
+      padding: 16px 24px;
+      box-shadow: var(--shadow-sm);
+    }
+    .controls-container {
+      max-width: 1300px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .category-tabs {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 4px;
+    }
+    .cat-btn {
+      background: #f1f5f9;
+      border: 1px solid var(--border);
+      color: var(--dark);
+      font-weight: 600;
+      font-size: 0.9rem;
+      padding: 8px 16px;
+      border-radius: 999px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+    .cat-btn:hover { background: #e2e8f0; }
+    .cat-btn.active {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+      box-shadow: 0 4px 12px rgba(194, 65, 12, 0.25);
+    }
+    .cat-count {
+      background: rgba(0,0,0,0.1);
+      padding: 2px 7px;
+      border-radius: 999px;
+      font-size: 0.75rem;
+    }
+    .cat-btn.active .cat-count {
+      background: rgba(255,255,255,0.25);
+    }
+
+    .search-and-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-grow: 1;
+      max-width: 500px;
+      justify-content: flex-end;
+    }
+    .search-box {
+      position: relative;
+      flex-grow: 1;
+    }
+    .search-box input {
+      width: 100%;
+      padding: 10px 16px 10px 38px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: #f8fafc;
+      font-size: 0.9rem;
+      outline: none;
+      transition: all 0.2s;
+    }
+    .search-box input:focus {
+      border-color: var(--primary);
+      background: #fff;
+      box-shadow: 0 0 0 3px rgba(194, 65, 12, 0.15);
+    }
+    .search-icon {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #94a3b8;
+      pointer-events: none;
+    }
+
+    .unit-toggle, .btn-secondary {
+      background: #fff;
+      border: 1px solid var(--border);
+      color: var(--dark);
+      padding: 9px 14px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+    .unit-toggle:hover, .btn-secondary:hover {
+      background: #f1f5f9;
+      border-color: #cbd5e1;
+    }
+
+    /* Main Container */
+    .main-content {
+      max-width: 1300px;
+      margin: 32px auto 80px;
+      padding: 0 24px;
+    }
+
+    /* Section Intro Cards */
+    .section-banner {
+      border-radius: var(--radius);
+      overflow: hidden;
+      margin-bottom: 32px;
+      background: #ffffff;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      align-items: center;
+    }
+    .section-banner-img {
+      height: 240px;
+      width: 100%;
+      object-fit: cover;
+    }
+    .section-banner-text {
+      padding: 24px 32px;
+    }
+    .section-banner-title {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      color: var(--charcoal);
+      margin-bottom: 8px;
+    }
+    .section-banner-desc {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    /* Recipe Grid */
+    .recipe-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+      gap: 24px;
+    }
+    .recipe-card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+    }
+    .recipe-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow);
+      border-color: #cbd5e1;
+    }
+    .card-media {
+      position: relative;
+      width: 100%;
+      height: 190px;
+      background: #1e293b;
+      overflow: hidden;
+    }
+    .card-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+    .recipe-card:hover .card-img {
+      transform: scale(1.05);
+    }
+    .card-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: rgba(15, 23, 42, 0.75);
+      backdrop-filter: blur(6px);
+      color: #fff;
+      padding: 4px 10px;
+      border-radius: 8px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+    }
+    .card-time-badge {
+      position: absolute;
+      bottom: 12px;
+      right: 12px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(6px);
+      color: var(--charcoal);
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .card-body {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+    .card-num {
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      color: var(--primary);
+      letter-spacing: 0.05em;
+      margin-bottom: 4px;
+    }
+    .card-title {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--charcoal);
+      line-height: 1.3;
+      margin-bottom: 8px;
+    }
+    .card-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+      margin-bottom: 16px;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      flex-grow: 1;
+    }
+    .card-meta-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid #f1f5f9;
+      padding-top: 14px;
+      margin-top: auto;
+      font-size: 0.8rem;
+    }
+    .meta-temp {
+      font-weight: 700;
+      color: var(--primary-dark);
+      background: var(--primary-light);
+      padding: 3px 8px;
+      border-radius: 6px;
+    }
+    .meta-cal {
+      color: #64748b;
+      font-weight: 600;
+    }
+    .card-view-btn {
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      padding: 6px 14px;
+      border-radius: 8px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .card-view-btn:hover {
+      background: var(--primary-dark);
+      transform: translateY(-1px);
+    }
+    .recipe-select {
+      background: #f1f5f9;
+      border: 1px solid var(--border);
+      color: var(--dark);
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      outline: none;
+      max-width: 250px;
+      transition: border-color 0.2s;
+    }
+    .recipe-select:focus {
+      border-color: var(--primary);
+      background: #fff;
+    }
+    .modal-view-img-btn {
+      position: absolute;
+      top: 18px;
+      left: 18px;
+      background: rgba(15, 23, 42, 0.75);
+      color: #fff;
+      padding: 7px 16px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(255,255,255,0.25);
+      z-index: 10;
+      transition: all 0.2s;
+    }
+    .modal-view-img-btn:hover {
+      background: var(--primary);
+      color: #fff;
+      transform: scale(1.04);
+    }
+
+    /* Modal / Recipe Detail Drawer */
+    .modal-overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(15, 23, 42, 0.6);
+      backdrop-filter: blur(5px);
+      z-index: 200;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .modal-overlay.active { display: flex; }
+    .modal-card {
+      background: #ffffff;
+      border-radius: 20px;
+      max-width: 850px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+    .modal-close {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      width: 38px;
+      height: 38px;
+      background: rgba(15, 23, 42, 0.7);
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      border: none;
+      z-index: 10;
+      transition: background 0.2s;
+    }
+    .modal-close:hover { background: #000; }
+    .modal-hero {
+      position: relative;
+      height: 280px;
+      width: 100%;
+      background: #1e293b;
+    }
+    .modal-hero img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .modal-hero-overlay {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      background: linear-gradient(to top, rgba(15,23,42,0.85) 0%, transparent 100%);
+      padding: 32px 28px 16px;
+      color: #fff;
+    }
+    .modal-cat-pill {
+      background: var(--primary);
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 999px;
+      display: inline-block;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+    }
+    .modal-title {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 800;
+      line-height: 1.2;
+    }
+
+    .modal-content {
+      padding: 28px;
+    }
+    .stats-bar {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+      gap: 12px;
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 14px;
+      margin-bottom: 24px;
+      text-align: center;
+    }
+    .stat-box-num { font-size: 1.1rem; font-weight: 800; color: var(--charcoal); }
+    .stat-box-label { font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); font-weight: 600; }
+
+    /* Interactive Toolbar in Modal: Servings & Timer */
+    .interactive-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 18px;
+      background: #fff7ed;
+      border: 1px solid #fed7aa;
+      border-radius: 12px;
+      margin-bottom: 24px;
+    }
+    .servings-stepper {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+    .stepper-btn {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      border: 1px solid #fdba74;
+      background: #fff;
+      color: var(--primary);
+      font-weight: 800;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .stepper-btn:hover { background: #ffedd5; }
+
+    .timer-widget {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .timer-display {
+      font-family: monospace;
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      background: #fff;
+      padding: 4px 10px;
+      border-radius: 8px;
+      border: 1px solid #fdba74;
+    }
+    .timer-btn {
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      padding: 6px 14px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      cursor: pointer;
+    }
+    .timer-btn:hover { background: var(--primary-dark); }
+
+    /* Checklist & Steps */
+    .section-heading {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      margin: 24px 0 12px;
+      color: var(--charcoal);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .ingredient-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 8px;
+    }
+    .ingredient-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 12px;
+      background: #f8fafc;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      cursor: pointer;
+    }
+    .ingredient-item:hover { background: #f1f5f9; }
+    .ingredient-item input[type="checkbox"] {
+      accent-color: var(--primary);
+      width: 16px;
+      height: 16px;
+    }
+    .ingredient-item.checked {
+      text-decoration: line-through;
+      color: #94a3b8;
+    }
+
+    .step-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .step-item {
+      display: flex;
+      gap: 14px;
+      padding: 12px;
+      background: #f8fafc;
+      border-radius: 10px;
+      font-size: 0.92rem;
+      line-height: 1.6;
+    }
+    .step-num {
+      width: 28px;
+      height: 28px;
+      background: var(--primary-light);
+      color: var(--primary-dark);
+      border-radius: 50%;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 0.85rem;
+    }
+
+    .chef-tip-alert {
+      background: #eff6ff;
+      border-left: 4px solid #3b82f6;
+      padding: 16px;
+      border-radius: 0 10px 10px 0;
+      margin: 24px 0 16px;
+    }
+    .chef-tip-title {
+      font-weight: 700;
+      color: #1e40af;
+      margin-bottom: 4px;
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .chef-tip-body {
+      font-size: 0.9rem;
+      color: #1e3a8a;
+    }
+
+    .pairing-box {
+      background: #f0fdf4;
+      border-left: 4px solid var(--secondary);
+      padding: 14px;
+      border-radius: 0 10px 10px 0;
+      margin-bottom: 24px;
+      font-size: 0.9rem;
+      color: #14532d;
+    }
+    .pairing-box strong { color: var(--secondary); }
+
+    /* Guide Modal */
+    .guide-modal-content {
+      padding: 36px 32px;
+    }
+    .guide-modal-content h2 {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      margin-bottom: 12px;
+    }
+    .guide-modal-content h3 {
+      font-size: 1.2rem;
+      margin: 20px 0 8px;
+      color: var(--primary-dark);
+    }
+    .guide-modal-content p {
+      margin-bottom: 14px;
+      color: #334155;
+    }
+
+    /* Print View */
+    @media print {
+      .controls-wrapper, .hero-banner, .modal-close, .interactive-bar, .timer-widget { display: none !important; }
+      body { background: #fff; color: #000; }
+      .recipe-grid { display: block; }
+      .recipe-card { page-break-inside: avoid; margin-bottom: 30px; box-shadow: none; border: 1px solid #ccc; }
+      .modal-overlay { position: static; display: block; background: none; }
+      .modal-card { max-height: none; max-width: 100%; box-shadow: none; }
+    }
+
+    @media (max-width: 768px) {
+      .section-banner { grid-template-columns: 1fr; }
+      .section-banner-img { height: 180px; }
+      .controls-container { flex-direction: column; align-items: stretch; }
+      .search-and-actions { max-width: 100%; }
+      .modal-hero { height: 200px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero Header -->
+  <header class="hero-banner">
+    <div class="hero-bg-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-badge">⚡ 100% Rapid Air Convection Only</div>
+      <h1 class="hero-title">The Master <span>Air Fryer</span> Cookbook</h1>
+      <p class="hero-subtitle">100 Authentic, Golden & Crispy Indian Delights Engineered for the Modern Air Fryer with 85% Less Oil</p>
+      
+      <div class="hero-stats">
+        <div class="stat-pill">
+          <div class="stat-val">100</div>
+          <div class="stat-lbl">Master Recipes</div>
+        </div>
+        <div class="stat-pill">
+          <div class="stat-val">85%</div>
+          <div class="stat-lbl">Less Fat & Oil</div>
+        </div>
+        <div class="stat-pill">
+          <div class="stat-val">4</div>
+          <div class="stat-lbl">Complete Courses</div>
+        </div>
+        <div class="stat-pill">
+          <div class="stat-val">360°</div>
+          <div class="stat-lbl">Cyclonic Heat</div>
+        </div>
+      </div>
+
+      <div class="hero-actions" style="margin-top: 32px; display: flex; justify-content: center; gap: 14px; flex-wrap: wrap;">
+        <a href="#recipeGrid" style="background: var(--primary); color: #fff; padding: 12px 26px; border-radius: 999px; font-weight: 700; text-decoration: none; box-shadow: 0 4px 15px rgba(194, 65, 12, 0.4); display: inline-flex; align-items: center; gap: 8px;">
+          🍽️ Explore All 100 Recipes
+        </a>
+        <a href="The_Ultimate_Air_Fryer_Cookbook.pdf" target="_blank" style="background: rgba(255,255,255,0.15); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.3); color: #fff; padding: 12px 26px; border-radius: 999px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">
+          📄 Open Master PDF (110 Pages)
+        </a>
+        <button id="heroGuideBtn" style="background: rgba(255,255,255,0.1); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.2); color: #fdba74; padding: 12px 26px; border-radius: 999px; font-weight: 700; cursor: pointer; display: inline-flex; align-items: center; gap: 8px;">
+          📖 Science & Guide
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Navigation & Controls -->
+  <nav class="controls-wrapper">
+    <div class="controls-container">
+      <div class="category-tabs" id="categoryTabs">
+        <button class="cat-btn active" data-cat="all">
+          All Recipes <span class="cat-count">100</span>
+        </button>
+        <button class="cat-btn" data-cat="breakfast">
+          🌅 Breakfast <span class="cat-count">20</span>
+        </button>
+        <button class="cat-btn" data-cat="snacks">
+          🥟 Snacks & Starters <span class="cat-count">40</span>
+        </button>
+        <button class="cat-btn" data-cat="mains">
+          🍛 Main Course <span class="cat-count">24</span>
+        </button>
+        <button class="cat-btn" data-cat="sweets">
+          🍯 Sweet Treats <span class="cat-count">16</span>
+        </button>
+      </div>
+
+      <div class="search-and-actions">
+        <select id="quickRecipeSelect" class="recipe-select" title="Jump directly to recipe">
+          <option value="">⚡ Jump to Recipe (1-100)...</option>
+        </select>
+        <div class="search-box">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="searchInput" placeholder="Search paneer, samosa, tikka, sweets...">
+        </div>
+        <button class="unit-toggle" id="unitToggleBtn" title="Toggle Celsius / Fahrenheit">
+          🌡️ <span id="unitLabel">°C / °F</span>
+        </button>
+        <a href="The_Ultimate_Air_Fryer_Cookbook.pdf" target="_blank" class="btn-secondary" title="View or Download 110-page PDF" style="text-decoration: none; display: inline-flex; align-items: center; gap: 6px;">
+          📄 PDF
+        </a>
+        <button class="btn-secondary" id="guideBtn" title="Air Fryer Cooking Guide">
+          📖 Guide & FAQ
+        </button>
+        <button class="btn-secondary" onclick="window.print()" title="Print Cookbook">
+          🖨️ Print
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <!-- Category Hero Banner (Dynamic) -->
+    <div id="sectionBanner" class="section-banner">
+      <img src="images/cover.jpg" id="bannerImg" class="section-banner-img" alt="Section Banner">
+      <div class="section-banner-text">
+        <h2 id="bannerTitle" class="section-banner-title">All 100 Air Fryer Recipes</h2>
+        <p id="bannerDesc" class="section-banner-desc">Explore the entire cookbook of golden, authentic snacks, breakfasts, royal mains, and guilt-free desserts.</p>
+      </div>
+    </div>
+
+    <!-- Recipe Card Grid -->
+    <div class="recipe-grid" id="recipeGrid"></div>
+  </main>
+
+  <!-- Recipe Detail Modal Drawer -->
+  <div class="modal-overlay" id="recipeModal">
+    <div class="modal-card">
+      <button class="modal-close" id="modalCloseBtn">&times;</button>
+      <div class="modal-hero">
+        <img id="modalImg" src="" alt="Recipe Image">
+        <a id="modalImgLink" href="" target="_blank" class="modal-view-img-btn" title="Open full resolution photo in new tab">
+          🔍 View Full Photo
+        </a>
+        <div class="modal-hero-overlay">
+          <span id="modalCat" class="modal-cat-pill">Category</span>
+          <h2 id="modalTitle" class="modal-title">Recipe Title</h2>
+        </div>
+      </div>
+      <div class="modal-content">
+        <!-- Quick Stats Row -->
+        <div class="stats-bar">
+          <div>
+            <div class="stat-box-num" id="modalTemp">180°C</div>
+            <div class="stat-box-label">Temperature</div>
+          </div>
+          <div>
+            <div class="stat-box-num" id="modalCookTime">12 mins</div>
+            <div class="stat-box-label">Cook Time</div>
+          </div>
+          <div>
+            <div class="stat-box-num" id="modalPrepTime">15 mins</div>
+            <div class="stat-box-label">Prep Time</div>
+          </div>
+          <div>
+            <div class="stat-box-num" id="modalCalories">165 kcal</div>
+            <div class="stat-box-label">Calories</div>
+          </div>
+          <div>
+            <div class="stat-box-num" id="modalMacros">P: 6g | C: 24g</div>
+            <div class="stat-box-label">Macros</div>
+          </div>
+        </div>
+
+        <!-- Description -->
+        <p id="modalDesc" style="color: #475569; font-size: 1rem; margin-bottom: 20px; font-style: italic;"></p>
+
+        <!-- Interactive Toolbar: Servings Scaler & Kitchen Timer -->
+        <div class="interactive-bar">
+          <div class="servings-stepper">
+            <span>👥 Servings:</span>
+            <button class="stepper-btn" id="servingsMinus">-</button>
+            <span id="servingsVal" style="font-weight: 800; font-size: 1.1rem; min-width: 20px; text-align: center;">4</span>
+            <button class="stepper-btn" id="servingsPlus">+</button>
+          </div>
+          <div class="timer-widget">
+            <span>⏱️ Basket Timer:</span>
+            <div class="timer-display" id="timerDisplay">12:00</div>
+            <button class="timer-btn" id="timerBtn">Start</button>
+            <button class="timer-btn" id="timerResetBtn" style="background: #64748b;">Reset</button>
+          </div>
+        </div>
+
+        <!-- Ingredients with Checkboxes -->
+        <h3 class="section-heading">🛒 Ingredients <span style="font-size: 0.85rem; font-weight: normal; color: #64748b;">(Click to check off)</span></h3>
+        <ul class="ingredient-list" id="modalIngredients"></ul>
+
+        <!-- Step-by-Step Instructions -->
+        <h3 class="section-heading">👩‍🍳 Air Fryer Instructions</h3>
+        <ul class="step-list" id="modalSteps"></ul>
+
+        <!-- Chef's Pro Secret Tip -->
+        <div class="chef-tip-alert">
+          <div class="chef-tip-title">💡 Chef's Air Fryer Secret Tip</div>
+          <div class="chef-tip-body" id="modalChefTip"></div>
+        </div>
+
+        <!-- Dip & Serving Pairing -->
+        <div class="pairing-box">
+          <strong>🥢 Serving & Dip Pairing:</strong> <span id="modalPairing"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Guide & FAQ Modal -->
+  <div class="modal-overlay" id="guideModal">
+    <div class="modal-card">
+      <button class="modal-close" id="guideCloseBtn">&times;</button>
+      <div class="guide-modal-content">
+        <h2>Air Fryer Master Guide & Culinary Science</h2>
+        <p>Your comprehensive guide to extracting restaurant-crisp crunch from every single recipe without the unhealthy fats of deep frying.</p>
+        
+        <div id="guideContentBody"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="recipes-data.js"></script>
+  <script>
+    // State
+    let currentCategory = 'all';
+    let searchQuery = '';
+    let isFahrenheit = false;
+    let activeRecipe = null;
+    let currentServings = 4;
+    let timerInterval = null;
+    let timerSecondsLeft = 0;
+    let timerTotalSeconds = 0;
+    let timerRunning = false;
+
+    const categoryMeta = {
+      all: {
+        title: "All 100 Air Fryer Recipes",
+        desc: "Explore the complete master collection of authentic Indian appetizers, breakfasts, main dishes, and festive sweets.",
+        img: "images/cover.jpg"
+      },
+      breakfast: {
+        title: "🌅 Breakfast Collection (20 Recipes)",
+        desc: "Start your morning with crispy poha cutlets, oat idli bites, blistered parathas, and savory cheelas with minimal oil.",
+        img: "images/breakfast.jpg"
+      },
+      snacks: {
+        title: "🥟 Snacks & Starters (40 Recipes)",
+        desc: "Street-side favorites reimagined: flaky golden samosas, charred paneer tikka, crispy bhindi chips, and crunchy pakoras.",
+        img: "images/snacks.jpg"
+      },
+      mains: {
+        title: "🍛 Main Course (24 Recipes)",
+        desc: "Royal stuffed peppers, tandoori cauliflower, fragrant dum biryani cups, and rich baked koftas for wholesome dinners.",
+        img: "images/mains.jpg"
+      },
+      sweets: {
+        title: "🍯 Sweet Treats (16 Recipes)",
+        desc: "Festive gujiyas, crunchy banana chips, roasted ladoos, modak bites, and jaggery cookies baked to golden perfection.",
+        img: "images/sweets.jpg"
+      }
+    };
+
+    // DOM Elements
+    const recipeGrid = document.getElementById('recipeGrid');
+    const searchInput = document.getElementById('searchInput');
+    const unitToggleBtn = document.getElementById('unitToggleBtn');
+    const unitLabel = document.getElementById('unitLabel');
+    const recipeModal = document.getElementById('recipeModal');
+    const modalCloseBtn = document.getElementById('modalCloseBtn');
+    const guideModal = document.getElementById('guideModal');
+    const guideBtn = document.getElementById('guideBtn');
+    const guideCloseBtn = document.getElementById('guideCloseBtn');
+    const sectionBanner = document.getElementById('sectionBanner');
+    const bannerImg = document.getElementById('bannerImg');
+    const bannerTitle = document.getElementById('bannerTitle');
+    const bannerDesc = document.getElementById('bannerDesc');
+
+    // Init
+    function init() {
+      renderCategoryTabs();
+      populateRecipeSelect();
+      renderRecipes();
+      setupEventListeners();
+      populateGuideModal();
+      checkUrlHash();
+    }
+
+    function renderCategoryTabs() {
+      const recipes = window.COOKBOOK_RECIPES || [];
+      const counts = {
+        all: recipes.length,
+        breakfast: recipes.filter(r => r.category === 'breakfast').length,
+        snacks: recipes.filter(r => r.category === 'snacks').length,
+        mains: recipes.filter(r => r.category === 'mains').length,
+        sweets: recipes.filter(r => r.category === 'sweets').length,
+      };
+      document.querySelectorAll('.cat-btn').forEach(btn => {
+        const cat = btn.dataset.cat;
+        const countEl = btn.querySelector('.cat-count');
+        if (countEl && counts[cat] !== undefined) {
+          countEl.textContent = counts[cat];
+        }
+      });
+    }
+
+    function populateRecipeSelect() {
+      const select = document.getElementById('quickRecipeSelect');
+      if (!select) return;
+      const recipes = window.COOKBOOK_RECIPES || [];
+      const categories = [
+        { key: 'breakfast', name: '🌅 Breakfast (Recipes 1–20)' },
+        { key: 'snacks', name: '🥟 Snacks & Starters (Recipes 21–60)' },
+        { key: 'mains', name: '🍛 Main Course (Recipes 61–84)' },
+        { key: 'sweets', name: '🍯 Sweet Treats (Recipes 85–100)' }
+      ];
+
+      select.innerHTML = '<option value="">⚡ Jump directly to Recipe (1-100)...</option>';
+      categories.forEach(cat => {
+        const catRecipes = recipes.filter(r => r.category === cat.key);
+        if (catRecipes.length > 0) {
+          const group = document.createElement('optgroup');
+          group.label = cat.name;
+          catRecipes.forEach(r => {
+            const opt = document.createElement('option');
+            opt.value = r.id;
+            opt.textContent = `#${r.toc_number} ${r.title} (${r.temp_c}°C / ${r.cook_time})`;
+            group.appendChild(opt);
+          });
+          select.appendChild(group);
+        }
+      });
+
+      select.addEventListener('change', (e) => {
+        const id = parseInt(e.target.value);
+        if (id) {
+          openRecipeModal(id);
+          select.value = "";
+        }
+      });
+    }
+
+    function checkUrlHash() {
+      const hash = window.location.hash;
+      if (hash && hash.startsWith('#recipe-')) {
+        const id = parseInt(hash.replace('#recipe-', ''));
+        if (id) {
+          setTimeout(() => {
+            openRecipeModal(id);
+            const el = document.getElementById(`recipe-${id}`);
+            if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }, 120);
+        }
+      }
+    }
+
+    function setupEventListeners() {
+      // Category tab clicks
+      document.getElementById('categoryTabs').addEventListener('click', (e) => {
+        const btn = e.target.closest('.cat-btn');
+        if (!btn) return;
+        document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentCategory = btn.dataset.cat;
+        updateBanner();
+        renderRecipes();
+      });
+
+      // Search input
+      searchInput.addEventListener('input', (e) => {
+        searchQuery = e.target.value.toLowerCase().trim();
+        renderRecipes();
+      });
+
+      // Temperature toggle
+      unitToggleBtn.addEventListener('click', () => {
+        isFahrenheit = !isFahrenheit;
+        unitLabel.textContent = isFahrenheit ? "Showing °F" : "Showing °C";
+        renderRecipes();
+        if (activeRecipe) updateModalTemperature();
+      });
+
+      // Modals
+      modalCloseBtn.addEventListener('click', closeModal);
+      recipeModal.addEventListener('click', (e) => {
+        if (e.target === recipeModal) closeModal();
+      });
+
+      guideBtn.addEventListener('click', () => guideModal.classList.add('active'));
+      const heroGuideBtn = document.getElementById('heroGuideBtn');
+      if (heroGuideBtn) {
+        heroGuideBtn.addEventListener('click', () => guideModal.classList.add('active'));
+      }
+      guideCloseBtn.addEventListener('click', () => guideModal.classList.remove('active'));
+      guideModal.addEventListener('click', (e) => {
+        if (e.target === guideModal) guideModal.classList.remove('active');
+      });
+
+      // Keyboard escape to close modals
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          closeModal();
+          guideModal.classList.remove('active');
+        }
+      });
+
+      // Hash change listener
+      window.addEventListener('hashchange', checkUrlHash);
+
+      // Servings scaler
+      document.getElementById('servingsMinus').addEventListener('click', () => {
+        if (currentServings > 1) {
+          currentServings--;
+          updateServingsDisplay();
+        }
+      });
+      document.getElementById('servingsPlus').addEventListener('click', () => {
+        if (currentServings < 16) {
+          currentServings++;
+          updateServingsDisplay();
+        }
+      });
+
+      // Timer
+      document.getElementById('timerBtn').addEventListener('click', toggleTimer);
+      document.getElementById('timerResetBtn').addEventListener('click', resetTimer);
+    }
+
+    function updateBanner() {
+      const meta = categoryMeta[currentCategory] || categoryMeta.all;
+      bannerImg.src = meta.img;
+      bannerTitle.textContent = meta.title;
+      bannerDesc.textContent = meta.desc;
+    }
+
+    function renderRecipes() {
+      const recipes = window.COOKBOOK_RECIPES || [];
+      const filtered = recipes.filter(r => {
+        const matchCat = (currentCategory === 'all' || r.category === currentCategory);
+        const matchSearch = !searchQuery || 
+          r.title.toLowerCase().includes(searchQuery) ||
+          r.description.toLowerCase().includes(searchQuery) ||
+          r.ingredients.some(ing => ing.toLowerCase().includes(searchQuery)) ||
+          r.tags.some(tag => tag.toLowerCase().includes(searchQuery));
+        return matchCat && matchSearch;
+      });
+
+      if (filtered.length === 0) {
+        recipeGrid.innerHTML = `
+          <div style="grid-column: 1 / -1; text-align: center; padding: 60px 20px; background: #fff; border-radius: 16px;">
+            <h3 style="font-size: 1.5rem; margin-bottom: 8px;">No recipes found</h3>
+            <p style="color: #64748b;">Try searching for ingredients like "paneer", "potato", "corn", or select another category.</p>
+          </div>
+        `;
+        return;
+      }
+
+      recipeGrid.innerHTML = filtered.map(r => {
+        const tempDisplay = isFahrenheit ? `${r.temp_f}°F` : `${r.temp_c}°C`;
+        return `
+          <div class="recipe-card" id="recipe-${r.id}" onclick="openRecipeModal(${r.id})">
+            <div class="card-media">
+              <img src="${r.image}" class="card-img" alt="${r.title}" loading="lazy" onerror="this.src='${categoryMeta[r.category]?.img || 'images/cover.jpg'}'">
+              <span class="card-badge">${r.category_name}</span>
+              <span class="card-time-badge">⏱️ ${r.cook_time}</span>
+            </div>
+            <div class="card-body">
+              <div class="card-num">#${r.toc_number} in ${r.category_name}</div>
+              <h3 class="card-title">${r.title}</h3>
+              <p class="card-desc">${r.description}</p>
+              <div class="card-meta-row">
+                <span class="meta-temp">${tempDisplay}</span>
+                <span class="meta-cal">${r.calories}</span>
+                <button class="card-view-btn" onclick="event.stopPropagation(); openRecipeModal(${r.id});">View Recipe ➜</button>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function openRecipeModal(id) {
+      const recipe = (window.COOKBOOK_RECIPES || []).find(r => r.id === id);
+      if (!recipe) return;
+      activeRecipe = recipe;
+      currentServings = recipe.servings || 4;
+
+      document.getElementById('modalImg').src = recipe.image;
+      const imgLink = document.getElementById('modalImgLink');
+      if (imgLink) {
+        imgLink.href = recipe.image;
+      }
+
+      document.getElementById('modalCat').textContent = recipe.category_name;
+      document.getElementById('modalTitle').textContent = recipe.title;
+      document.getElementById('modalCookTime').textContent = recipe.cook_time;
+      document.getElementById('modalPrepTime').textContent = recipe.prep_time;
+      document.getElementById('modalCalories').textContent = recipe.calories;
+      document.getElementById('modalMacros').textContent = `P: ${recipe.protein} | C: ${recipe.carbs}`;
+      document.getElementById('modalDesc').textContent = recipe.description;
+      document.getElementById('modalChefTip').textContent = recipe.chef_tip;
+      document.getElementById('modalPairing').textContent = recipe.dip_pairing;
+
+      updateModalTemperature();
+      updateServingsDisplay();
+      setupTimer(recipe.cook_time);
+
+      // Render Instructions
+      const stepsContainer = document.getElementById('modalSteps');
+      stepsContainer.innerHTML = recipe.instructions.map((step, idx) => `
+        <li class="step-item">
+          <span class="step-num">${idx + 1}</span>
+          <div>${step}</div>
+        </li>
+      `).join('');
+
+      recipeModal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+
+      // Update URL hash without reload
+      if (window.location.hash !== `#recipe-${recipe.id}`) {
+        history.replaceState(null, recipe.title, `#recipe-${recipe.id}`);
+      }
+    }
+
+    function closeModal() {
+      recipeModal.classList.remove('active');
+      document.body.style.overflow = 'auto';
+      activeRecipe = null;
+      resetTimer();
+      if (window.location.hash.startsWith('#recipe-')) {
+        history.replaceState(null, document.title, window.location.pathname + window.location.search);
+      }
+    }
+
+    function updateModalTemperature() {
+      if (!activeRecipe) return;
+      document.getElementById('modalTemp').textContent = isFahrenheit 
+        ? `${activeRecipe.temp_f}°F` 
+        : `${activeRecipe.temp_c}°C`;
+    }
+
+    function updateServingsDisplay() {
+      document.getElementById('servingsVal').textContent = currentServings;
+      if (!activeRecipe) return;
+
+      const baseServings = activeRecipe.servings || 4;
+      const ratio = currentServings / baseServings;
+
+      const ingContainer = document.getElementById('modalIngredients');
+      ingContainer.innerHTML = activeRecipe.ingredients.map((ing, i) => {
+        const scaled = scaleIngredient(ing, ratio);
+        return `
+          <li class="ingredient-item" onclick="toggleIngCheck(this)">
+            <input type="checkbox">
+            <span>${scaled}</span>
+          </li>
+        `;
+      }).join('');
+    }
+
+    function toggleIngCheck(el) {
+      const cb = el.querySelector('input');
+      cb.checked = !cb.checked;
+      el.classList.toggle('checked', cb.checked);
+    }
+
+    function scaleIngredient(text, ratio) {
+      if (ratio === 1) return text;
+      return text.replace(/^([\d\.\/]+)/, (match) => {
+        let num = 0;
+        if (match.includes('/')) {
+          const parts = match.split('/');
+          num = parseFloat(parts[0]) / parseFloat(parts[1]);
+        } else {
+          num = parseFloat(match);
+        }
+        if (isNaN(num)) return match;
+        const scaled = (num * ratio);
+        return scaled % 1 === 0 ? scaled.toFixed(0) : scaled.toFixed(1).replace(/\.0$/, '');
+      });
+    }
+
+    // Timer Implementation
+    function setupTimer(cookTimeStr) {
+      const match = cookTimeStr.match(/(\d+)/);
+      const mins = match ? parseInt(match[1]) : 10;
+      timerTotalSeconds = mins * 60;
+      timerSecondsLeft = timerTotalSeconds;
+      timerRunning = false;
+      document.getElementById('timerBtn').textContent = "Start";
+      updateTimerDisplay();
+    }
+
+    function updateTimerDisplay() {
+      const mins = Math.floor(timerSecondsLeft / 60);
+      const secs = timerSecondsLeft % 60;
+      document.getElementById('timerDisplay').textContent = 
+        `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+    }
+
+    function toggleTimer() {
+      if (timerRunning) {
+        clearInterval(timerInterval);
+        timerRunning = false;
+        document.getElementById('timerBtn').textContent = "Resume";
+      } else {
+        timerRunning = true;
+        document.getElementById('timerBtn').textContent = "Pause";
+        timerInterval = setInterval(() => {
+          if (timerSecondsLeft > 0) {
+            timerSecondsLeft--;
+            updateTimerDisplay();
+          } else {
+            clearInterval(timerInterval);
+            timerRunning = false;
+            document.getElementById('timerBtn').textContent = "Done!";
+            alert("⏰ Air Fryer Timer Done! Check your basket for peak crispiness!");
+          }
+        }, 1000);
+      }
+    }
+
+    function resetTimer() {
+      clearInterval(timerInterval);
+      timerRunning = false;
+      timerSecondsLeft = timerTotalSeconds;
+      document.getElementById('timerBtn').textContent = "Start";
+      updateTimerDisplay();
+    }
+
+    function populateGuideModal() {
+      const intro = window.COOKBOOK_INTRO;
+      if (!intro) return;
+      const body = document.getElementById('guideContentBody');
+      body.innerHTML = `
+        <h3 style="color: var(--primary); font-size: 1.4rem;">${intro.welcome.title}</h3>
+        <p>${intro.welcome.content.replace(/\n/g, '<br>')}</p>
+        <hr style="margin: 20px 0; border: none; border-top: 1px solid #e2e8f0;">
+        
+        <h3 style="color: var(--secondary); font-size: 1.4rem;">${intro.why_healthy.title}</h3>
+        ${intro.why_healthy.points.map(p => `
+          <div style="margin-bottom: 14px;">
+            <strong>${p.headline}</strong>: ${p.text}
+          </div>
+        `).join('')}
+        <hr style="margin: 20px 0; border: none; border-top: 1px solid #e2e8f0;">
+
+        <h3 style="color: var(--primary); font-size: 1.4rem;">${intro.tips_best_results.title}</h3>
+        ${intro.tips_best_results.rules.map(r => `
+          <div style="margin-bottom: 12px;">
+            <strong>${r.title}</strong>: ${r.desc}
+          </div>
+        `).join('')}
+        <hr style="margin: 20px 0; border: none; border-top: 1px solid #e2e8f0;">
+
+        <h3 style="font-size: 1.4rem;">Frequently Asked Questions</h3>
+        ${intro.faq.map(f => `
+          <div style="margin-bottom: 16px;">
+            <strong style="color: #0f172a;">Q: ${f.q}</strong>
+            <p style="color: #475569; margin-top: 4px;">A: ${f.a}</p>
+          </div>
+        `).join('')}
+      `;
+    }
+
+    window.addEventListener('DOMContentLoaded', init);
+  </script>
+</body>
+</html>
